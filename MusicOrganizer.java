@@ -250,4 +250,18 @@ public class MusicOrganizer
             }
         }
     }
+
+    /**
+     * Elimina las canciones que contengan el título
+     * introducido por el usuario por parametro String.
+     */
+    public void removeByTitle(String titulo) {
+        Iterator<Track> it = tracks.iterator();
+
+        while(it.hasNext()) {
+            if(it.next().getTitle().contains(titulo)) {
+                it.remove();
+            }
+        }
+    }
 }
