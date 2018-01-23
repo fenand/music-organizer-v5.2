@@ -15,6 +15,8 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+    // reproduccionen curso
+    private boolean pistaEnReproduccion;
 
     /**
      * Create a MusicOrganizer
@@ -57,7 +59,8 @@ public class MusicOrganizer
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
-            track.playCountIncremento();            
+            track.playCountIncremento();   
+            pistaEnReproduccion = true;
         }
     }
 
@@ -126,6 +129,7 @@ public class MusicOrganizer
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
             tracks.get(0).playCountIncremento();
+            pistaEnReproduccion = true;
         }
     }
 
@@ -135,6 +139,7 @@ public class MusicOrganizer
     public void stopPlaying()
     {
         player.stop();
+        pistaEnReproduccion = false;
     }
 
     /**
@@ -192,6 +197,17 @@ public class MusicOrganizer
     public void fijarcd(int indicecancion, String cd) {
         if(indicecancion >= 0 && indicecancion < tracks.size()) {
             tracks.get(indicecancion).fijarcd(cd);
+        }
+    }
+    /**
+     * Muestra por pantalla si hay una canción en reproducción o no.
+     */
+    public void isPlaying() {        
+        if(pistaEnReproduccion == true) {
+            System.out.println("Hay una canción reproduciéndose");                   
+        }
+        else {
+            System.out.println("No hay ninguna canción en reproduccion");
         }
     }
 }
