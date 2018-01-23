@@ -185,4 +185,13 @@ public class MusicOrganizer
             }
         }
     }
+
+    /**
+     * Fija el cd de la canción que seleccionemos con su indice de la cancion.
+     */
+    public void fijarcd(int indicecancion, String cd) {
+        if(indicecancion >= 0 && indicecancion < tracks.size()) {
+            tracks.get(indicecancion).fijarcd(cd);
+        }
+    }
 }

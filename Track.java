@@ -15,6 +15,8 @@ public class Track
     private String filename;
     // numero de reproducciones de las canciones y reinicio
     private int playCount;
+    //todas las canciones que tiene un cd
+    private String cd;
 
     /**
      * Constructor for objects of class Track.
@@ -26,6 +28,7 @@ public class Track
     {
         setDetails(artist, title, filename);
         playCount = 0;
+        cd = "";
     }
 
     /**
@@ -38,6 +41,7 @@ public class Track
     {
         setDetails("unknown", "unknown", filename);
         playCount = 0;
+        cd = "";
     }
 
     /**
@@ -73,7 +77,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")" + " - Reproducciones: " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ")" + " - Reproducciones: " + playCount + " - CD: " + cd;
     }
 
     /**
@@ -101,6 +105,19 @@ public class Track
      */
     public void playCountReinicio() {
         playCount = 0;
+    }
+    /**
+     * Devuelve el cd.
+     */
+    public String obtenercd() {
+        return cd;
+    }
+
+    /**
+     * Fija el cd.
+     */
+    public void fijarcd(String cd) {
+        this.cd = cd;
     }
 
 }
